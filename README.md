@@ -1,2 +1,2 @@
-# landing-page-with-chakra-ui-part-1
-Created with CodeSandbox
+#BharatSim LandingPage v1
+Created with Create-react-app
