@@ -2,7 +2,10 @@
 Created with ```create-react-app```
 ## Available Scripts
 
-In the project directory, you can run:
+To install project dependencies, run
+### `npm install`
+
+To start the app, you can run:
 
 ### `npm start`
 
