@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import Head from 'next/head';
 import {
   Box,
@@ -28,25 +29,25 @@ export default function CallToActionWithAnnotation() {
         <Stack
           as={Box}
           textAlign={'center'}
-          spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}>
-          <Heading
-            fontWeight={600}
-            fontSize={{ base: 'xl', sm: '3xl', md: '4xl' }}
-            lineHeight={'110%'}
-            fontFamily="Lato"
-            id="LandingTitle">
-            <Text as={'span'} color={'#9CAAC5'}>
-              Bharatsim
-            </Text>
-          </Heading>
-          <Text color={'white.500'} p={1} fontWeight={300} fontSize='xl' fontFamily="Inter"
-            
-          >
-          <p> <span style={{color:"#9CAAC5",fontWeight:"600"}}> BharatSim</span>  is a collaborative project between <span style={{color:"#9CAAC5",fontWeight:"600"}}> Ashoka University </span> and <span style={{color:"#9CAAC5",fontWeight:"600"}}> Thoughtworks</span>, funded by the <span style={{color:"#9CAAC5",fontWeight:"600"}}>Bill & Melinda Gates Foundation</span>. 
+          spacing={{ base: 8, md: 5 }}
+          py={{ base: 5, md: 30 }}>
+            <Heading
+              fontWeight={600}
+              fontSize={{ base: 'xl', sm: '3xl', md: '4xl' }}
+              lineHeight={'110%'}
+              fontFamily="Lato"
+              id="LandingTitle">
+              <Text as={'span'} color={'#9CAAC5'}>
+                BharatSim
+              </Text>
+            </Heading>
+
+          <Text color={'white.500'} p={1} fontWeight={300} fontSize='xl' fontFamily="Inter">
+           <span style={{color:"#9CAAC5",fontWeight:"600"}}> BharatSim</span>  is a collaborative project between <span style={{color:"#9CAAC5",fontWeight:"600"}}> Ashoka University </span> and <span style={{color:"#9CAAC5",fontWeight:"600"}}> Thoughtworks</span>, funded by the <span style={{color:"#9CAAC5",fontWeight:"600"}}>Bill & Melinda Gates Foundation</span> and <span style={{color:"#9CAAC5",fontWeight:"600"}}>Mphasis</span>. 
           Its vision is to build a simulation framework that is distributed, multi-scale, and agent-based for use by the scientific community. 
           It was originally designed to run decision-critical scenarios for India during the COVID-19 pandemic. 
-          Real-world systems involve interactions between individuals with different attributes (age, weight, etc.) and geographies. These interactions lead to emergent phenomena, while events like pandemics affect individuals according to their attributes.</p>
+          Real-world systems involve interactions between individuals with different attributes (age, weight, etc.) and geographies.
+           These interactions lead to emergent phenomena, while events like pandemics affect individuals according to their attributes.
           </Text>
           <Stack
             direction={'column'}
@@ -62,11 +63,12 @@ export default function CallToActionWithAnnotation() {
               _hover={{
                 bg: '#9CAAC5',
               }}>
-              Get Started
+             <Link to="/components"> Get Started </Link>
             </Button>
-            <Button variant={'link'} colorScheme={'purple'} size={'sm'}>
+
+            {/* <Button variant={'link'} colorScheme={'purple'} size={'sm'}>
             <span style={{color:"#9CAAC5"}}>Learn more</span>
-            </Button>
+            </Button> */}
           </Stack>
         </Stack>
       </Container>

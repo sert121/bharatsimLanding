@@ -31,7 +31,7 @@ export default function App() {
     
           </ChakraProvider>
         </Route>
-        <Route path="/projects">
+        <Route path="/components">
             <ChakraProvider theme={theme}>
                  <LandingLayout>
                    <Projects />
@@ -52,14 +52,39 @@ export default function App() {
     </ChakraProvider>
         </Route>
 
-          <Route path="/publications">
-          <ChakraProvider theme={theme}>
- 
-          <LandingLayout ><Publications /></LandingLayout>
-          <Footer />
-          </ChakraProvider>
-
+        <Route path="/media">
+        <ChakraProvider theme={theme}>
+        <LandingLayout>
+          Work in Progress...
+          </LandingLayout>
+    </ChakraProvider>
         </Route>
+
+
+      <Route path="/collaborations">
+        <ChakraProvider theme={theme}>
+        <Header bg="#392F74" ></Header>
+        <div style={{margin:"auto",width:"50%",paddingLeft:"23vw"}}>
+            Work in Progress...
+            </div>
+                  
+        </ChakraProvider>
+      </Route>
+
+
+
+        <Route path="/publications">
+          <ChakraProvider theme={theme}>
+          <Header bg="#392F74" ></Header>
+            {/*<Publications />*/}
+            <div style={{margin:"auto",width:"50%",paddingLeft:"23vw"}}>
+            Work in Progress...
+            </div>
+            
+          {/* <Footer /> */}
+          </ChakraProvider>
+        </Route>
+
         <Route path="/">
           <Landing />
         

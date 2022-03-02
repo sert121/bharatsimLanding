@@ -2,15 +2,15 @@ import React from 'react';
 // import sections
 // <Cta split/> after testimonial
 import './People.css';
-import { MdSettings,MdHeadset,MdLocationOn,MdEmail } from 'react-icons/md';
+import { MdSettings,MdHeadset,MdLocationOn,MdEmail, MdWeb } from 'react-icons/md';
 import {BsFillBriefcaseFill} from 'react-icons/bs';
 
-import { HStack,Icon,Container,Text,Flex, Spacer,Box,useColorModeValue,Link,Image } from '@chakra-ui/react';
+import { HStack,Icon,Container,Text,Flex,Spacer,Box,useColorModeValue,Link,Image } from '@chakra-ui/react';
+
+import { Center, Square, Circle } from '@chakra-ui/react'
 
 
-
-
-function ProfileCard(){
+function ProfileCard({name,title,email,img_url}){
   return (
     <Flex
     //   bg={useColorModeValue("#F9FAFB", "gray.600")}
@@ -20,9 +20,10 @@ function ProfileCard(){
       justifyContent="center"
     >
       <Box
-        w="auto"
+        w="full"
+        h="auto"
         mx="auto"
-        bg={useColorModeValue("white", "blue.900")}
+        bg={useColorModeValue("white", "#351B59")}
         shadow="lg"
         rounded="lg"
         overflow="hidden"
@@ -30,9 +31,9 @@ function ProfileCard(){
         <Image
           w="full"
           h={56}
-          fit="cover"
+          fit="contain"
           objectPosition="center"
-          src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+          src={img_url}
           alt="avatar"
         />
 
@@ -42,11 +43,11 @@ function ProfileCard(){
             fontWeight="bold"
             color={useColorModeValue("gray.800", "white")}
           >
-            Patterson johnson
+            {name}
           </Text>
 
           <Text py={2} color={useColorModeValue("gray.700", "gray.400")}>
-Professor of Astrophysics
+            {title}
           </Text>
 {/*
           <Flex
@@ -88,9 +89,12 @@ Professor of Astrophysics
             <Icon as={MdEmail} h={6} w={6} mr={2} />
               
             <Text px={2} fontSize="sm">
-              patterson@example.com
+              {email}
             </Text>
           </Flex>
+
+    
+
         </Box>
       </Box>
     </Flex>
@@ -101,12 +105,41 @@ const People = () => {
   return (
     <>
     <div className="topContainer-people">
-    <Flex direction="row">
-      <ProfileCard/>
-      <ProfileCard/>
-      <ProfileCard/>
+    <Flex direction="column">
+     
+        <Center>
+          <Text fontSize='xl' fontWeight={700}> Thoughtworks Team</Text>
+        </Center>
+
+      <Flex direction="row">
+      
+        <ProfileCard name="Jayanta Kshirsagar" title="Lead Research Scientist" img_url="https://www.thoughtworks.com/content/dam/thoughtworks/images/photography/thoughtworker-profile/j/pro_jayantakshirsagar.jpg" email=""/>
+        <ProfileCard name="Harshal Hayatnagarkar" title="Computer Scientist, Engineering for Research" img_url="https://www.thoughtworks.com/content/dam/thoughtworks/images/photography/thoughtworker-profile/h/pro_harshal_hayatnagarkar.jpg" email=""/>
+        <ProfileCard name="Praveen Ninawe" title="Senior Consultant" img_url="https://media-exp1.licdn.com/dms/image/C5103AQFQlouLTYF7Tw/profile-displayphoto-shrink_200_200/0/1566459292585?e=1651708800&v=beta&t=Q_xKjpRuK5UlqM7Bvl4zpDoYau8aNBF9Fr4JA22rwp0" email=""/>
+        
+
+      </Flex> 
+
+      <br></br>
+      <br></br>
+
+      <Center>
+      <Text fontSize='xl' fontWeight={700}> Ashoka University Team</Text>
+      </Center>
+
+      <Flex direction="row">
+      
+      <ProfileCard name="Gautam Menon" title="Professor of Physics and Biology" img_url="https://www.ashoka.edu.in/wp-content/uploads/2021/04/Untitled-design-55.png" email="gautam.menon@ashoka.edu.in"/>
+      <ProfileCard name="Debayan Gupta" title="Assistant Professor of Computer Science" img_url="https://www.ashoka.edu.in/wp-content/uploads/2021/04/Untitled-design-70.png" email="debayan.gupta@ashoka.edu.in"/>
+      <ProfileCard name="Bhavesh Neekhra" title="Graduate Student, Computer Science" img_url="https://pbs.twimg.com/profile_images/1353270474671702018/2zjRiWsa_400x400.jpg" email="bhavesh.neekhra_phd18@ashoka.edu.in"/>
+      <ProfileCard name="Philip Cherian" title="Graduate Student, Physics" img_url="https://avatars.githubusercontent.com/u/19914486?v=4" email="philip.cherian@ashoka.edu.in"/>
+
+      </Flex> 
+    
+
 
     </Flex>
+
     </div> 
     
  
