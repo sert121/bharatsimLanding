@@ -34,7 +34,7 @@ const MenuItemUrl = ({ children, isLast, to = "/", ...rest }) => {
 };
 
 const BharatSimIcon = () => (
-<svg width="240" height="40" viewBox="0 0 726 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="380" height="60" viewBox="0 0 726 215" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="57" cy="128" r="4" fill="#ABAEB2"/>
 <circle cx="37" cy="108" r="4" fill="#ABAEB2"/>
 <circle cx="57" cy="88" r="4" fill="#ABAEB2"/>
@@ -147,7 +147,7 @@ const Header = (props) => {
           color={["white", "white", "primary.500", "primary.500"]}
         />
      */}
-         <div style={{fontSize:"em"}}><BharatSimIcon/></div>
+         <Link to="/"><div style={{fontSize:"em"}}><BharatSimIcon/></div></Link>
       </Flex>
 
       <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
@@ -166,7 +166,9 @@ const Header = (props) => {
         >
           <MenuItem to="/">Home</MenuItem>
           {/* <MenuItem to="/about">About </MenuItem> */}
-          <MenuItem to="/projects"> Projects </MenuItem>
+          
+          <MenuItem to="/components"> Components </MenuItem>
+          <MenuItem to="/collaborations"> Collaborations </MenuItem>
           <MenuItem to="/publications"> Publications </MenuItem>
           <MenuItem to="/people"> People </MenuItem>
           <MenuItem to="/media"> Media </MenuItem>
@@ -174,7 +176,7 @@ const Header = (props) => {
           <MenuItemUrl to="https://documentation.com" isLast>
           {/* <ButtonDoc></ButtonDoc> */}
           {/* 363c46 alt button color */}
-
+          <a href='https://bharatsim.readthedocs.io' target="_blank">
             <Button
               size="md"
               rounded="md"
@@ -183,9 +185,10 @@ const Header = (props) => {
               _hover={{
                 bg: ["primary.600", "primary.100", "primary.600", "primary.600"]
               }}
+              onClick={()=> window.open("https://bharatsim.readthedocs.io", "_blank")}
             >
-                  <a href='https://documentation.com' isExternal>      Documentation            </a>
-            </Button>
+                    Documentation            
+            </Button></a>
 
           </MenuItemUrl>
         </Flex>

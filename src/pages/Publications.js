@@ -2,7 +2,7 @@ import React from 'react';
 // import sections
 // <Cta split/> after testimonial
 import './Publications.css'
-import { Stack,HStack ,VStack,  theme,Container,Text,Flex, Spacer,Box,useColorModeValue,Link,Image } from '@chakra-ui/react'
+import { Stack,HStack ,VStack, Header, theme,Container,Text,Flex, Spacer,Box,useColorModeValue,Link,Image } from '@chakra-ui/react'
 
 function Cards(){
   return (
@@ -102,10 +102,14 @@ const Publications = () => {
 
   return (
     <>
-<VStack spacing={8} m={2} mb={3} >   <Cards/>
+
+<VStack spacing={8} m={2} mb={3} > 
+
+
 <Cards/>
 <Cards/>
 <Cards/>
+
 
 </VStack>
  
