@@ -7,13 +7,12 @@ import {
   VStack,
   Code,
   Grid,
-  theme,
 } from '@chakra-ui/react';
 import Hero from "../components/sections/Hero";
 import LandingLayout from "../components/layouts/LandingLayout";
 import LandingHero from "./LandingHero";
 import Footer from "../components/sections/Footer";
-
+import theme from '../theme.js';
 export default function Landing() {
   return (
     <ChakraProvider theme={theme}>

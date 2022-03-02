@@ -9,8 +9,8 @@ import {
   Flex,
   Code,
   Grid,
-  theme,
 } from '@chakra-ui/react';
+import theme from './theme.js';
 import Landing from "./pages/Landing";
 import Publications from "./pages/Publications";
 import People from "./pages/People";
@@ -32,7 +32,7 @@ export default function App() {
           </ChakraProvider>
         </Route>
         <Route path="/projects">
-            <ChakraProvider>
+            <ChakraProvider theme={theme}>
                  <LandingLayout>
                    <Projects />
                 </LandingLayout>  

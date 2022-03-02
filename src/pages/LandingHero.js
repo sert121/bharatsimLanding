@@ -32,7 +32,7 @@ export default function CallToActionWithAnnotation() {
           py={{ base: 20, md: 36 }}>
           <Heading
             fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+            fontSize={{ base: 'xl', sm: '3xl', md: '4xl' }}
             lineHeight={'110%'}
             fontFamily="Lato"
             id="LandingTitle">
