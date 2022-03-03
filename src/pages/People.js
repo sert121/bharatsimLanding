@@ -113,9 +113,10 @@ const People = () => {
 
       <Flex direction="row">
       
-        <ProfileCard name="Jayanta Kshirsagar" title="Lead Research Scientist" img_url="https://www.thoughtworks.com/content/dam/thoughtworks/images/photography/thoughtworker-profile/j/pro_jayantakshirsagar.jpg" email=""/>
-        <ProfileCard name="Harshal Hayatnagarkar" title="Computer Scientist, Engineering for Research" img_url="https://www.thoughtworks.com/content/dam/thoughtworks/images/photography/thoughtworker-profile/h/pro_harshal_hayatnagarkar.jpg" email=""/>
-        <ProfileCard name="Praveen Ninawe" title="Senior Consultant" img_url="https://media-exp1.licdn.com/dms/image/C5103AQFQlouLTYF7Tw/profile-displayphoto-shrink_200_200/0/1566459292585?e=1651708800&v=beta&t=Q_xKjpRuK5UlqM7Bvl4zpDoYau8aNBF9Fr4JA22rwp0" email=""/>
+        <ProfileCard name="Jayanta Kshirsagar" title="Engineering for Research" img_url={require('../assets/people/jayanta1.jpg')} email="jayantak@thoughtworks.com"/>
+        <ProfileCard name="Praveen Ninawe" title="Engineering for Research" img_url={require('../assets/people/praveen.jpg')} email="praveen.ninawe@thoughtworks.com"/>
+        <ProfileCard name="Harshal Hayatnagarkar" title="Engineering for Research" img_url={require('../assets/people/harshal.png')} email="harshalh@thoughtworks.com"/>
+        <ProfileCard name="Chhaya Yadav" title="Engineering for Research" img_url={require('../assets/people/chhaya.jpeg')} email="chhayay@thoughtworks.com"/>
         
 
       </Flex> 
