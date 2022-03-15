@@ -33,9 +33,7 @@ export default function App() {
         </Route>
         <Route path="/components">
             <ChakraProvider theme={theme}>
-                 <LandingLayout>
-                   <Projects />
-                </LandingLayout>  
+            <LandingLayout > <Projects /> </LandingLayout>
                 <Footer />    
             </ChakraProvider>
         </Route>
@@ -65,7 +63,7 @@ export default function App() {
         <ChakraProvider theme={theme}>
         <Header bg="#392F74" ></Header>
         <div style={{margin:"auto",width:"50%",paddingLeft:"23vw"}}>
-            Work in Progress...
+            Work in Progress..
             </div>
                   
         </ChakraProvider>

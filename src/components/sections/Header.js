@@ -147,7 +147,7 @@ const Header = (props) => {
           color={["white", "white", "primary.500", "primary.500"]}
         />
      */}
-         <Link to="/"><div style={{fontSize:"em"}}><BharatSimIcon/></div></Link>
+         <Link to="/"><div style={{fontSize:"1em"}}><BharatSimIcon/></div></Link>
       </Flex>
 
       <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>

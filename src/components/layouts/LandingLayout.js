@@ -11,6 +11,7 @@ export default function LandingLayout(props) {
       m="0 auto"
       {...props}
       bg="#392F74"
+      minH="93vh"
     >
       <Header />
       {props.children}
