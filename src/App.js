@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   ChakraProvider,
   Center,
+  Image,
   Box,
   HStack,
   Vstack,
@@ -96,28 +97,59 @@ export default function App() {
         <ChakraProvider theme={theme}>
         <Header bg="#392F74" ></Header>
         </ChakraProvider>
-        <Container maxW='container.xm' ml={3} mr={3}>
-        <Center>
+        <Container maxW='container.xm' flexDirection="column" ml={3} mr={3}>
+          <Center>
           <Text p={2} m={1}>
           The simulation engine accepts a synthetic population as a CSV file. 
           The BharatSim simulation engine was designed so that it would be able to scale up to large population sizes without significant overhead or degradation in speed, given that one use of BharatSim would be to simulate populations of the size of an average Indian state.
            Agent-based models are computationally heavy and must typically be run multiple times to obtain statistically significant results. As a consequence, the framework needed to implement efficient data structures and algorithms. Finally, we intended that BharatSim be usable on a range of conventionally available hardware ranging from personal laptops to High Performance Computing (HPC) clusters. Flexibility was another design imperative: we wanted modellers from a range of backgrounds, perhaps even lacking significant programming experience, to be able to easily define a new model and add further levels of abstraction, 
            thus extending the framework in new ways.
+           </Text>
+           </Center>
            <br></br>
            <br></br>
            <br></br>
+            <Center>
            <Heading size="lg">Structure of the simulation engine</Heading>
+           </Center>
            <br></br>
-           All data in the simulation engine is stored in a <b>Graph</b>. This graph is a network of nodes which can represent both individual agents as well as locations such as households or offices. The framework defines a Node class which allows for relations to be established between other such nodes. 
-           The <i>Node</i> class is further extended to define the <b>Agent</b> and
-           <b>Network</b> classes.
-           [insert figure here]
+           <Center>
+              <Text p={2} m={1}>
+              All data in the simulation engine is stored in a <b>Graph</b>. This graph is a network of nodes which can represent both individual agents as well as locations such as households or offices. The framework defines a Node class which allows for relations to be established between other such nodes. 
+              The <i>Node</i> class is further extended to define the <b>Agent</b> and
+              <b>Network</b> classes.
+              </Text>
+           </Center>
+          <Center>
+            <Box p={2} m={2} backgroundColor='grey'>
+              <Image src={require("./assets/graphNodesAndRelations.png")}>
+              </Image>
+            </Box>
+           </Center>
+
+           <b></b>
+           <b></b>
+           <b></b>
+           <Text p={2} m={1}>
            Using an abstraction like a graph makes the framework domain independent and flexible. This graph can be implemented in one of two ways, either by using Neo4j, a graph database, or using the Scala programming language's scalable map implementation TrieMap. The modeller can choose either of these implementations. Both these structures were chosen since they optimized data operations, allowing the simulation to scale efficiently to larger populations.
            The simulation engine framework allows modellers to directly specify their models using its own language. This domain-specific language is itself based on <i>Scala</i>, the language that the simulation framework has been written in. This allows modellers to extend their knowledge of <i>Scala</i> when creating their models. In addition, certain abstract and highly-used concepts have been highlighted and defined using the framework's language.
             Three such concepts, essential to agent-based models, are schedules, behaviours, and a Finite State Machine.
-          </Text>
-          
-        </Center>
+            </Text>
+            <Text p={2} m={2}>
+                <OrderedList>
+              <ListItem>Schedules: Every individual agent follows a schedule that is defined by the modeller. Such schedules specify agent locations across time. These schedules can be dynamic, can depend on the current state of the agent and can be affected by interventions that are imposed.
+              </ListItem>
+              <ListItem>
+              Behaviours: A behaviour is an action that is performed by each agent at every time-step. Behaviours can be defined within the user-defined extension of the <i>Agent</i> class using the framework-defined <i>addBehaviour</i> function.
+              </ListItem>
+              </OrderedList>  
+            </Text>
+            <Box p={2} m={2} backgroundColor='grey'>
+              <Image src={require("./assets/schedulesAndBehaviours.png")}>
+              </Image>
+            </Box>
+
+
         </Container>
       </Route>
       
@@ -488,12 +520,13 @@ export default function App() {
              which can either be static, or which can change with time based on the data provided in the input CSV file.
              The visualization engine provides a variety of different features:
              <br></br>
+             <br></br>
               <OrderedList>
                   <ListItem> <Heading size="xs">Data Import: </Heading> The visualization engine can import data in ZIP, CSV, and GeoJSON formats. The user can add, delete, and link files from different dashboards and can also add columns with custom formulae.
                   </ListItem>
                   <ListItem> <Heading size="xs"> Charts: </Heading>The user can represent time-series data as a line-graph. Additionally, bar charts, histograms, and pie charts can be used to study aggregated data. Geographical information and data can also be visualized. Spatial variations in data can be visualized using either heatmaps or choropleths. Heatmaps visualize data in the form of ``hot'' or ``cold'' spots, with a warm-to-cool color scheme. Choropleth maps can also be used to visualize how quantities vary across a fixed geographic area like a district or state, while simultaneously showing the extent of variation within a region.
                   </ListItem>
-                  <ListItem><Heading size='xs'>Project \& Dashboard management: </Heading> Users can create a Project which can have multiple individual dashboards for better analysis. 
+                  <ListItem><Heading size='xs'> Project & Dashboard management: </Heading> Users can create a Project which can have multiple individual dashboards for better analysis. 
                   Users can add, edit, and delete projects and dashboards for better management. Dashboards are auto-saved to avoid data loss.
                   Users can easily add, edit, duplicate, and delete widgets and charts in each dashboard. Dashboards can be duplicated to allow users to duplicate certain design choices and widget configurations. Each widget also allows the users to export the output either as raster or vector data using the PNG and SVG file formats respectively.
                   </ListItem>

@@ -7,7 +7,6 @@ export default function LandingLayout(props) {
     <Flex
       direction="column"
       align="center"
-      maxW={{ xl: "1600px" }}
       m="0 auto"
       {...props}
       bg="#392F74"

@@ -25,7 +25,7 @@ export default function CallToActionWithAnnotation() {
         />
       </Head> */}
 
-      <Container maxW={'3xl'}>
+      <Container maxW='3xl'>
         <Stack
           as={Box}
           textAlign={'center'}

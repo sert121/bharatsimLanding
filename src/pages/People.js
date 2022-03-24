@@ -131,9 +131,9 @@ const People = () => {
       <Flex direction="row">
       
       <ProfileCard name="Gautam Menon" title="Professor of Physics and Biology" img_url="https://www.ashoka.edu.in/wp-content/uploads/2021/04/Untitled-design-55.png" email="gautam.menon@ashoka.edu.in"/>
-      <ProfileCard name="Debayan Gupta" title="Assistant Professor of Computer Science" img_url="https://www.ashoka.edu.in/wp-content/uploads/2021/04/Untitled-design-70.png" email="debayan.gupta@ashoka.edu.in"/>
-      <ProfileCard name="Bhavesh Neekhra" title="Graduate Student, Computer Science" img_url="https://pbs.twimg.com/profile_images/1353270474671702018/2zjRiWsa_400x400.jpg" email="bhavesh.neekhra_phd18@ashoka.edu.in"/>
-      <ProfileCard name="Philip Cherian" title="Graduate Student, Physics" img_url="https://avatars.githubusercontent.com/u/19914486?v=4" email="philip.cherian@ashoka.edu.in"/>
+      <ProfileCard name="Debayan Gupta" title="Assistant Professor of Computer Science" img_url={require('../assets/people/DebG.jpeg')} email="debayan.gupta@ashoka.edu.in"/>
+      <ProfileCard name="Bhavesh Neekhra" title="Graduate Student, Computer Science" img_url={require('../assets/people/Bhavesh_Neekhra_AU.jpeg')} email="bhavesh.neekhra_phd18@ashoka.edu.in"/>
+      <ProfileCard name="Philip Cherian" title="Graduate Student, Physics" img_url={require('../assets/people/Philip_Profile.jpg')} email="philip.cherian@ashoka.edu.in"/>
 
       </Flex> 
     
