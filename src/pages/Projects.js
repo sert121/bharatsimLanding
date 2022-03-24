@@ -12,15 +12,15 @@ alignItems="center"
 justifyContent="center"
 flexDirection="column"
 >
-<Box
-  bg={useColorModeValue("gray.100", "gray.700")}
-  mx={{ lg: 8 }}
-  display={{ lg: "flex" }}
-  maxW={{ lg: "xl" }}
-  shadow={{ lg: "lg" }}
-  rounded={{ lg: "lg" }}
->
-      <Box w={{ lg: "30%" }}>
+  <Box
+    bg={useColorModeValue("gray.100", "gray.700")}
+    mx={{ lg: 8 }}
+    display={{ lg: "flex" }}
+    maxW={{ lg: "xl" }}
+    shadow={{ lg: "lg" }}
+    rounded={{ lg: "lg" }}
+  >
+      <Box w={{ lg: "30%" }} backgroundColor='tomato'>
         <Box
           h={{ base: 64, lg: "full" }}
           rounded={{ lg: "lg" }}
@@ -28,6 +28,7 @@ flexDirection="column"
           bgRepeat="none"
           backgroundImage={"url('" + props.imageUrl + "')"}
         ></Box>
+        <Image src={props.imageUrl}></Image>
       </Box>
 
   <Box py={12} px={6} maxW={{ base: "xl", lg: "5xl" }} w={{ lg: "50%" }}>
@@ -71,15 +72,13 @@ flexDirection="column"
     return (
       <Flex
       px={2}
-      py={2}
+      pb={4}
       bg={"transparent"}
       direction="column"
       w="full"
-      justify='space-between'
-
+      justify='space-around'
       >
         <Box
-        
           maxW="5xl"
           mx="auto"
           minH="xl"
@@ -87,14 +86,15 @@ flexDirection="column"
           shadow="lg"
           rounded="lg"
         >
+          <Box minH="10%">
           <Image
-            h={48}
             w="full"
             mt="20%"
             fit="cover"
             src={props.imageUrl}
             alt="img1"
           />
+          </Box>
           <Spacer></Spacer>
           <Box px={4} py={2}>
             <Text
@@ -113,7 +113,7 @@ flexDirection="column"
             >
               {props.body}
             </Text>
-            <Box mt={4}>
+            <Box mt={4} mb={4}>
               <InnerLink to={props.external_link}>
               <Link      
                 bg="gray.900"

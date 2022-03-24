@@ -4,6 +4,8 @@ import { extendTheme } from '@chakra-ui/react'
 const config = {
   initialColorMode: 'dark',
   useSystemColorMode: false,
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  
 }
 
 // 3. extend the theme
