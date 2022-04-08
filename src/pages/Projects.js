@@ -139,11 +139,11 @@ flexDirection="column"
   const Projects = (props) => {
 
  return(
-   <Container w="full" maxW={"6xl"} >
+   <Container w="full" maxW={"6xl"}  >
       <HStack spacing={2}>
-        <Ma imageUrl="https://i.ibb.co/qrRnDCw/tsne.png" external_link="/simulation_engine" title="Simulation engine" body="An open-source, large-scale, agent-based simulation framework, built to help the scientific community to study complex adaptive systems, such as the behaviour of human populations. The engine takes as input the synthetic population for a given region and allows a modeller the flexibility to create a custom model that represents individual-level interactions and scenarios between agents, without being lost in unnecessary implementation details."/>
-        <Ma imageUrl="https://i.ibb.co/jkbW30f/india-viz.png"  external_link="/viz_engine" title="Visualization Engine" body=" A self-contained web app that can read the output of the simulation engine and create multiple dashboards with different types of graphs which can in turn help in analyzing the results and extracting information from them "/>
-        <Ma imageUrl="https://i.ibb.co/ThtKFNK/undraw-hologram-fjwp.png"   external_link="/synthetic_population" title="Synthetic Data Generation" body="Synthetic population represents a set of synthetic agents that share a common geographic, social or biological characteristic. 
+        <Ma imageUrl="https://i.ibb.co/qrRnDCw/tsne.png"  external_link="/simulation_engine" title="Simulation engine" body="An open-source, large-scale, agent-based simulation framework, built to help the scientific community to study complex adaptive systems, such as the behaviour of human populations. The engine takes as input the synthetic population for a given region and allows a modeller the flexibility to create a custom model that represents individual-level interactions and scenarios between agents, without being lost in unnecessary implementation details."/>
+        <Ma imageUrl="https://i.ibb.co/jkbW30f/india-viz.png"   external_link="/viz_engine" title="Visualization Engine" body=" A self-contained web app that can read the output of the simulation engine and create multiple dashboards with different types of graphs which can in turn help in analyzing the results and extracting information from them "/>
+        <Ma imageUrl="https://i.ibb.co/ThtKFNK/undraw-hologram-fjwp.png"  external_link="/synthetic_population" title="Synthetic Data Generation" body="Synthetic population represents a set of synthetic agents that share a common geographic, social or biological characteristic. 
         For example, we can have a synthetic population for a district and they would share Census measurements of that district.
          Data and attributes of the synthetic agents are synthesised by integrating a diverse set of data sources(e.g., Census, IHDS, NSS etc.) and using models for interpolation and extrapolation of data"/>
       </HStack>

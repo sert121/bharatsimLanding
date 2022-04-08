@@ -9,10 +9,10 @@ export default function LandingLayout(props) {
       align="center"
       m="0 auto"
       {...props}
-      bg="#392F74"
+      // bg="#392F74"
       minH="93vh"
     >
-      <Header />
+      <Header bg="#392F74" />
       {props.children}
 
     </Flex>
