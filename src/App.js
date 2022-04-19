@@ -121,7 +121,7 @@ export default function App() {
               </Text>
            </Center>
           <Center>
-            <Box p={2} m={2} backgroundColor='grey'>
+            <Box p={2} m={2} backgroundColor='white'>
               <Image src={require("./assets/graphNodesAndRelations.png")}>
               </Image>
             </Box>
@@ -144,7 +144,7 @@ export default function App() {
               </ListItem>
               </OrderedList>  
             </Text>
-            <Box p={2} m={2} backgroundColor='grey'>
+            <Box p={2} m={2} backgroundColor='white'>
               <Image src={require("./assets/schedulesAndBehaviours.png")}>
               </Image>
             </Box>

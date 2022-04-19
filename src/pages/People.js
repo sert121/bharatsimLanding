@@ -20,8 +20,8 @@ function ProfileCard({name,title,email,img_url}){
       justifyContent="center"
     >
       <Box
-        w="full"
-        h="auto"
+        w="300px"
+        h="400px"
         mx="auto"
         bg={useColorModeValue("white", "#351B59")}
         shadow="lg"
@@ -30,8 +30,9 @@ function ProfileCard({name,title,email,img_url}){
       >
         <Image
           w="full"
+          boxSize='350px'
           h={56}
-          fit="contain"
+          objectFit="contain"
           objectPosition="center"
           src={img_url}
           alt="avatar"

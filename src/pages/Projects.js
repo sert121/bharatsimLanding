@@ -81,16 +81,18 @@ flexDirection="column"
         <Box
           maxW="5xl"
           mx="auto"
-          minH="xl"
+          // minH="xl"
+          minH="700px"
           bg={useColorModeValue("white", "gray.800")}
           shadow="lg"
           rounded="lg"
         >
           <Box minH="10%">
           <Image
-            w="full"
+            w="350px"
+            h="300px"
             mt="20%"
-            fit="cover"
+            objectFit="cover"
             src={props.imageUrl}
             alt="img1"
           />
@@ -113,7 +115,7 @@ flexDirection="column"
             >
               {props.body}
             </Text>
-            <Box mt={4} mb={4}>
+            <Box mt={7} mb={4}>
               <InnerLink to={props.external_link}>
               <Link      
                 bg="gray.900"
