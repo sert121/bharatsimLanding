@@ -186,16 +186,19 @@ export default function App() {
       <Route path="/synthetic_population">
         <ChakraProvider theme={theme}>
         <Header bg="#392F74" ></Header>
+        <Center>
         <Container maxW='container.xl' m={3}>
 
           <Text m={2} p={2}>
            A synthetic population is a simplified individual-level representation of the actual population. This means that while every person is represented individually in it, not all of their attributes are included (for example, hair colour or shoe-size are deemed to be irrelevant for modelling epidemic spread, and are thus ignored, while the presence of commodities like diabetes would be included). As such, a synthetic population does not aim to be identical to the actual population, but instead attempts to match its various statistical distributions and correlations, thereby being sufficiently close to the true population to be used in modelling.<br></br>
-
+           </Text>
+           <Text m={2} p={2} align='justify'>
            In the table below, you can see an example of a section of a synthetic population. Each row represents an individual with a unique ID, as well as certain attributes. These attributes could be related to the individual themselves (like their gender, age, and height and so on), or their network (details pertaining to their homes, workplaces, and possibly schools). Additionally, the population could also contain information regarding the individual’s comorbidities (for example, whether they have diabetes or other preexisting conditions), if this is deemed relevant to the modelling exercise.
           </Text>
 
           <br></br>
-                <Table size='sm'>
+                  <Box overflowX="auto" maxWidth="100%">
+                <Table size='sm' maxW='500px'>
       <Thead>  <Tr>
           <Th>Agent_ID</Th>
           <Th>SexLabel</Th>
@@ -518,7 +521,8 @@ export default function App() {
           <Td>0</Td>
         </Tr>
       </Tbody>
-                </Table>
+      </Table>
+      </Box>
           <br>
           </br>
 
@@ -526,7 +530,49 @@ export default function App() {
               All of these attributes are strongly correlated with each other and a good synthetic population will ideally be able reproduce the correlations that occur in the real world. However, this is a monumental task; real world data is complex, and often contains many artifacts that need to be addressed.
           </Text>
 
+          <Text m={2} p={2}>
+            At the core of BharatSim is a simulated synthetic population, generated using multiple data sources. The resulting population of individuals and households with demographic attributes resembles “reality”: in that if an identical survey were carried out with the synthetic population, it would bear results that statistically similar to the true population.
+          </Text>
+          <Text m={2} p={2}>
+            The synthetic population is generated using statistical methods and machine learning algorithms which are flexible enough to generate data at various administrative levels, i.e., at the level of cities, districts, states, or even the entire country, depending on the level of granularity required by the modeller. The primary sources of data for the generation of such a population are datasets from the Census of India, the India Human Development Survey (IHDS), the National Sample Survey (NSS), the National Family Health Welfare Survey (NFHS), and the Gridded Population of the World (GPW). A number of other sources are also used to fine-tune and validate the above datasets.
+            </Text>
+            <Text m={2} p={2}>
+
+            However, it is not sufficient to merely maintain similar demographic statistics: one must simultaneously handle other connections within the population, like household and workplace contact networks, among other things. If not, we may end up with “families” composed entirely of toddlers, or workplaces with strange mixes of professions, to cite just a few possibilities. Furthermore, the geographical layouts of the households and workplaces must also be realistic.
+            </Text>
+            <Text m={2} p={2}>
+            Because different kinds of data respond well to different techniques, a hybrid process is used to scale up these datasets. First, the data is cleaned, removing absurdities such as negative weights. Then, we use a customized hybrid of Iterative Proportional Fitting (IPF), Iterative Proportional Updating (IPU), and a specialized variant of a neural network, called Conditional-Tabular Generative Adversarial Network (CTGAN), to generate new data.
+            </Text>
+            <Text m={2} p={2}>
+
+            <b>Iterative Proportional Fitting:</b> This can find a joint distribution that matches the marginals, while trying to stay as close to the sample distribution as possible.
+            </Text>
+            <Text m={2} p={2}>
+
+            <b>Iterative Proportional Updating:</b> This is a heuristic iterative approach which can simultaneously match or fit to multiple distributions (constraints)
+            Conditional-Tabular Generative Adversarial Networks: CTGAN (Xu et al., 2019) is a GAN-based method to model the tabular data distribution and sample rows from the distribution. A Generative Adversarial Network is composed of two "competing" neural networks, a generator and a discriminator. The goal of the generator is to generate realistic samples such that the discriminator is unable to differentiate between a real sample and a generated sample. In this zero-sum game, capabilities of both the networks are enhanced iteratively and the generator begins to generate samples which resemble the real samples.
+            </Text>
+            <Text m={2} p={2}>
+
+            <b>Population Generation Process:</b> We use iterated proportional updating to generate a base population. We use census data for the marginal information about the population and the IHDS survey dataset for personal and household attributes. The base population consists of individual data and household data. We assign each household to an administrative unit within a district. We also experimented with CTGAN to generate a base population. The major advantage of IPU over CTGAN is that IPU is capable of matching individual level and household level characteristics of an individual making sure that members of the household have a realistic age and gender joint distribution.<br/><br/>
+
+            To assign job labels to individuals in the synthetic population, relevant data from IHDS is used. Individuals below the age of 18 are considered to be students in this population. Additionally, a subset of the population will also be home-bound consisting of unemployed individuals, home-maker, infants and children under the age 3 and elderly people over the retirement age. We use marginal data from the NSS survey to determine the percentage of adult males and females in a city who are home-bound. This gender based marginal value is used as the parameter for a Bernoulli distribution to draw a random independent sample to assign a home-bound label to each adult.<br/><br/>
+
+            Each student in the population is assigned a school. Similarly, each working individual is assigned a workplace based upon his job label. A synthetic latitude and longitude pair is then created for each home, school and workplace in our dataset. To generate synthetic geolocation data, GADM grid population density data (“Global Administrative Areas”, 2012) is used. The grid points are then sampled (with replacement) from the subset, with each point weighed by the population density in that grid. We add independent uniform random noise to the longitudes and latitudes, and reject the samples which fall outside the geographical boundary. We follow this process to generate synthetic geolocation data for households, schools and workplaces.<br/><br/>
+
+            To assign an individual a school, a sample is drawn from the list of schools within that geographical boundary, with each school weighed by the inverse of the euclidean distance (disregarding the curvature of Earth) between the individual’s home and all the schools. This weighting factor increases the probability of a school closer to an individual’s home getting assigned to her.<br/><br/>
+
+            A similar technique is followed while assigning workplaces to adults, with a sample being drawn from a suitable subset of workplaces depending on the individual’s job type. There are other attributes that need to be addressed as well. Does an individual use public transport service? Is an individual an "essential worker"? Such ideas are particularly useful for many epidemiological studies, like the spread of COVID-19 in particular. Such factors are currently determined by the job title.
+            </Text>
+            <Text m={2} p={2}>
+            <b>Population Verification Metrics:</b> To compare and verify the generated synthetic population with the real data, multiple metrics such as Statistical (CS-test, KS-test, Bhattacharya distance), Likelihood, and Machine Learning Efficacy Regression are used. For example, the Bhattacharya distance -- a distance measure to measure the statistical similarity between two samples in the same space -- is used to compare the various versions of synthetic population. The greater the overlap between two samples, the lower the Bhattacharya distance. As such, this metric can be used to measure similarity for the age-height and age-weight joint distributions.
+
+            Critically, our techniques are designed to work seamlessly across data-scarce and data-rich areas; even if a particular area has error-prone or missing data, we can still generate a synthetic population, albeit of slightly poorer quality, but without affecting anything else.
+
+          </Text>
+
         </Container>
+        </Center>
         </ChakraProvider>
       </Route>
 
