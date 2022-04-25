@@ -4,7 +4,7 @@ import { Box, Flex, Text, Button,Icon } from "@chakra-ui/react";
 import Logo from "../ui/Logo";
 import ButtonDoc from "../ui/ButtonDoc";
 import { useHistory } from "react-router-dom";
-import BharatSimLogo from '../../assets/BWdark.svg';
+import BharatSimLogo from '../../assets/bharatsim-logo-color.svg';
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
@@ -28,7 +28,7 @@ const MenuItemUrl = ({ children, isLast, to = "/", ...rest }) => {
       {...rest}
     >
       <Link href={to} isExternal>{children}</Link>
-      
+
     </Text>
   );
 };
@@ -124,7 +124,7 @@ const Header = (props) => {
   const toggleMenu = () => setShow(!show);
 
   const history = useHistory();
-  const handleRoute = () =>{ 
+  const handleRoute = () =>{
     history.push("/about");
   }
 
@@ -166,7 +166,7 @@ const Header = (props) => {
         >
           <MenuItem to="/">Home</MenuItem>
           {/* <MenuItem to="/about">About </MenuItem> */}
-          
+
           <MenuItem to="/components"> Components </MenuItem>
           <MenuItem to="/collaborations"> Collaborations </MenuItem>
           <MenuItem to="/publications"> Publications </MenuItem>
@@ -187,7 +187,7 @@ const Header = (props) => {
               }}
               onClick={()=> window.open("https://bharatsim.readthedocs.io", "_blank")}
             >
-                    Documentation            
+                    Documentation
             </Button></a>
 
           </MenuItemUrl>
