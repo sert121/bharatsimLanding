@@ -92,6 +92,7 @@ flexDirection="column"
             w="350px"
             h="300px"
             mt="20%"
+            p="5%"
             objectFit="contain"
             src={props.imageUrl}
             alt="img1"
