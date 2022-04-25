@@ -5,7 +5,7 @@ const config = {
   initialColorMode: 'light',
   useSystemColorMode: false,
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  
+
 }
 
 // 3. extend the theme
