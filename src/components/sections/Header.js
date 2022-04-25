@@ -4,7 +4,7 @@ import { Box, Flex, Text, Button,Icon } from "@chakra-ui/react";
 import Logo from "../ui/Logo";
 import ButtonDoc from "../ui/ButtonDoc";
 import { useHistory } from "react-router-dom";
-import BharatSimLogo from '../../assets/bharatsim-logo-color.svg';
+import BharatSimLogo from '../../assets/bharatsim-logo.png';
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
