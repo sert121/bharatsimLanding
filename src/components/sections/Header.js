@@ -150,7 +150,7 @@ const Header = (props) => {
          <Link  m={-3}
                 p={3}to="/">
                   <Box size='sm'>
-                    <Image width='130px' src={BharatSimLogo}></Image>
+                    <Image width='160px' src={BharatSimLogo}></Image>
                   </Box>
                 </Link>
       </Flex>
