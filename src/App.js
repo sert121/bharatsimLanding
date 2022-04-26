@@ -100,8 +100,11 @@ export default function App() {
         <Center>
         <Container maxW='container.xl' flexDirection="column" ml={3} mr={3}>
           <Center>
-          <Text p={2} m={1} align='justify'>
+          <Text p={2} m={2} align='justify'>
 
+          <Center>
+          <Heading size="lg" p={2}>The Simulation Engine</Heading>
+          </Center><br/>
             Mathematical and computational approaches to the dynamics of an infectious disease have a long history. The most commonly used models separate the individuals in the population into compartments  that describe their crrent state with respect to the progession of the disease. A very simple example of this is the SIR model, where individuals are placed into one of three compartments: susceptible (S), infectious (I), or recovered (R). Simulations can then be run to find the fractions of individuals in each compartment as a function of time, prescribed through coupled non-linear differential equations.  However, such models often assume that the population is well-mixed, ignoring complications associated with spatial variations in incidence as well as the interplay of social factors, such as family sizes, community networks and the effects of socio-economic status.<br/><br/>
 
             There is therefore some benefit to going beyond such models, to address these limitations. Network and agent-based models implement granularity at the level of individuals, but in turn require many more assumptions, especially regarding the nature of contacts that might lead to infection. However, they provide a more detailed way of understanding disease dynamics  than is possible with compartmental models. They can also thus be used to assess the effects of targeted interventions, such as lock-downs and restrictions on public transport, in a more precise way.  For realistic networks describing the interactions between people,the presence of a few highly connected nodes implies that strategies that target those nodes, ``super-spreaders'' in the context of infectious disease dynamics, can have an overwhelmingly large effect compared to interventions that treat all nodes on the same footing.<br/><br/>
@@ -112,71 +115,79 @@ export default function App() {
            </Text>
            </Center>
            <br></br>
-           <br></br>
-           <br></br>
-
-           <Heading size="md" p={2}>Structure of the simulation engine</Heading>
-
-           <br></br>
+           <Heading size="md" m={2} p={2}>Structure of the simulation engine</Heading>
            <Center>
-              <Text p={2} m={1} align='justify'>
+              <Text p={2} m={2} align='justify'>
 
-              <Center>
                 <Box p={2} m={2} backgroundColor='white'>
-                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/graph.png")}>
-                  </Image>
+                <Center>
+                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/graph.png")}></Image>
+                </Center>
                 </Box>
-              </Center>
+
 
               All data in the simulation engine is stored in a <b>Graph</b>. This graph is a network of nodes which can represent both individual agents as well as locations such as households or offices. The framework defines a <tt>Node</tt> class which allows for relations to be established between other such nodes.
-              The <tt>Node</tt> class is further extended to define the <tt>Agent</tt> and <tt>Network</tt> classes. The <tt>Network</tt> classes can then be further extended to define specific locations like a <tt>Home</tt> or a <tt>Workplace</tt> class. Thus a typical graph might be one that's shown in the figure below: individual agents (extensions of the <tt>Person</tt> class) are connected to Homes and Workplaces (both extensions of the <tt>Network</tt> class). <br/><br/>
+              The <tt>Node</tt> class is further extended to define the <tt>Agent</tt> and <tt>Network</tt> classes. The <tt>Network</tt> classes can then be further extended to define specific locations like a <tt>Home</tt> or a <tt>Workplace</tt> class. Thus a typical graph might be one that's shown in the figure below: individual agents (extensions of the <tt>Person</tt> class) are connected to Homes and Workplaces (both extensions of the <tt>Network</tt> class).
 
-              <Center>
+
                 <Box p={2} m={2} backgroundColor='white'>
-                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/nodes.png")}>
-                  </Image>
+                <Center>
+                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/nodes.png")}></Image>
+                </Center>
                 </Box>
-              </Center>
+
 
               One could then establish relations between these nodes. For example, every Agent could be a resident of a specific house (specified by a <tt>HouseholdID</tt>) and be employed by a specific workplace (specified by the <tt>WorkplaceID</tt>). The relations are bidirectional, and require one to additionally specify that the home houses -- and the workplace employs -- that particular Agent (specified by the <tt>AgentID</tt>).
 
-              <Center>
+
                 <Box p={2} m={2} backgroundColor='white'>
-                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/relations.png")}>
-                  </Image>
+                <Center>
+                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/relations.png")}></Image>
+                </Center>
                 </Box>
-              </Center>
 
               </Text>
            </Center>
 
-           <b></b>
-           <b></b>
-           <b></b>
-           <Text p={2} m={1} align='justify'>
 
-           Using an abstraction like a graph makes the framework domain independent and flexible. This graph can be implemented in one of two ways, either by using <Link style={{color:"blue"}} variant="outline" href="https://neo4j.com/" target={"_blank"}>Neo4j</Link>, a graph database, or using the Scala programming language's scalable map implementation <Link style={{color:"blue"}} target={"_blank"} href="https://www.scala-lang.org/api/2.12.8/scala/collection/concurrent/TrieMap.html">TrieMap</Link>. The modeller can choose either of these implementations. Both these structures were chosen since they optimized data operations, allowing the simulation to scale efficiently to larger populations. The simulation engine framework allows modellers to directly specify their models using its own language. This domain-specific language is itself based on <i>Scala</i>, the language that the simulation framework has been written in. This allows modellers to extend their knowledge of <i>Scala</i> when creating their models. In addition, certain abstract and highly-used concepts have been highlighted and defined using the framework's language. Three such concepts, essential to agent-based models, are schedules, behaviours, and a Finite State Machine.
+           <Text p={2} m={2} align='justify'>
+
+           Using an abstraction like a graph makes the framework domain independent and flexible. This graph can be implemented in one of two ways, either by using <Link style={{color:"blue"}} variant="outline" href="https://neo4j.com/" target={"_blank"}>Neo4j</Link>, a graph database, or using the Scala programming language's scalable map implementation <Link style={{color:"blue"}} target={"_blank"} href="https://www.scala-lang.org/api/2.12.8/scala/collection/concurrent/TrieMap.html">TrieMap</Link>. The modeller can choose either of these implementations. Both these structures were chosen since they optimized data operations, allowing the simulation to scale efficiently to larger populations. The simulation engine framework allows modellers to directly specify their models using its own language. This domain-specific language is itself based on <i>Scala</i>, the language that the simulation framework has been written in. This allows modellers to extend their knowledge of <i>Scala</i> when creating their models.
             </Text>
 
-
+            <Heading size="md" m={2} p={2}>The <tt>Agent</tt> and <tt>StatefulAgent</tt> classes</Heading>
             <Text p={2} m={2} align='justify'>
-              <b>Schedules:</b> Every individual agent follows a schedule that is defined by the modeller. Such schedules specify agent locations across time. These schedules can be dynamic, can depend on the current state of the agent, and can be affected by interventions that are imposed. For example, one could define a different schedules for individuals, depending on whether they are above the age of 20 or below it. In the former case, these individuals could be considered as "employees", who go from home to work, while in the latter case, they could be "students" who go from home to school. These conditions can be made as general or specific as necessary: for example, one could define a schedule for all agents who happen to be symptomatic, which involves them spending more time at home rather than at work or school, thereby exploring the effect of "quarantining" symptomatic individuals. Thus, complicated network structures can be modelled by incorporating granularity into the schedules of different individuals. <br/><br/>
+              The <tt>Agent</tt> class can be extended to specify a custom agent in a model with specific attributes. These could be general attributes like <tt>householdID</tt> or a <tt>workplaceID</tt>, or model-specific attributes like <tt>relativeSusceptibility</tt> which defines the relative susceptibility the individual has to being infected. A pre-defined extension of the <tt>Agent</tt> class is the <tt>StatefulAgent</tt> class, which endows the <tt>Agent</tt> with a <a href="https://en.wikipedia.org/wiki/Finite-state_machine">Finite-State Machine</a>, allowing them to be in one -- and only one -- disease state at any given time.
 
+              <Box p={2} m={2} backgroundColor='white'>
               <Center>
+                <Image width="60%" ml="7%"mr="7%" pt="5%" pb="5%" src={require("./assets/person.png")}></Image>
+              </Center>
+              </Box>
+
+
+              In addition, certain abstract and highly-used concepts have been highlighted and defined using the framework's language, like schedules that govern the movement of individuals, and behaviours which are actions that are performed by every agent at every time-step.
+              </Text>
+
+              <Heading size="sm" m={2} p={2}>Schedules</Heading>
+
+              <Text p={2} m={2} align='justify'>
+              Every individual agent follows a schedule that is defined by the modeller. Such schedules specify agent locations across time. These schedules can be dynamic, can depend on the current state of the agent, and can be affected by interventions that are imposed. For example, one could define a different schedules for individuals, depending on whether they are above the age of 20 or below it. In the former case, these individuals could be considered as "employees", who go from home to work, while in the latter case, they could be "students" who go from home to school. These conditions can be made as general or specific as necessary: for example, one could define a schedule for all agents who happen to be symptomatic, which involves them spending more time at home rather than at work or school, thereby exploring the effect of "quarantining" symptomatic individuals. Thus, complicated network structures can be modelled by incorporating granularity into the schedules of different individuals. <br/><br/>
+
+
                 <Box p={2} m={2} backgroundColor='white'>
+                <Center>
                   <Image width="70%" ml="7%"mr="7%" pt="5%" pb="5%" src={require("./assets/schedules.png")}>
                   </Image>
+                  </Center>
                 </Box>
-              </Center>
 
             </Text>
-            <Box p={2} m={2} backgroundColor='white'>
-              <Image width="70%" ml="7%"mr="7%" pt="5%" pb="5%" src={require("./assets/person.png")}>
-              </Image>
-            </Box>
+
+            <Heading size="sm" m={2} p={2}>Behaviours</Heading>
 
             <Text p={2} m={2} align='justify'>
-              <b>Behaviours:</b> A behaviour is an action that is performed by each agent at every time-step, and can be defined within the user-defined extension of the <tt>Agent</tt> class using the framework-defined <tt>addBehaviour</tt> function. These behaviours can be used to model (for example) whether or not an individual will go to a vaccination centre to get vaccinated, or alternatively to count the number of days that an individual has spent in the infected compartment. Such behaviours thus give the modeller the flexibility to perform a repetitive task per agent per time-step.
+              A behaviour is an action that is performed by each agent at every time-step, and can be defined within the user-defined extension of the <tt>Agent</tt> class using the framework-defined <tt>addBehaviour</tt> function. These behaviours can be used to model (for example) whether or not an individual will go to a vaccination centre to get vaccinated, or alternatively to count the number of days that an individual has spent in the infected compartment. Such behaviours thus give the modeller the flexibility to perform a repetitive task per agent per time-step.
             </Text>
 
         </Container>
@@ -188,11 +199,18 @@ export default function App() {
         <Header bg="#392F74" ></Header>
         <Center>
         <Container maxW='container.xl' m={3}>
-
+          <Text m={2} p={2} align='justify'>
+          <Center><Heading size="lg" p={2}>The Synthetic Population</Heading></Center><br/>
+            At the core of BharatSim is a simulated synthetic population, generated using multiple data sources. The resulting population of individuals and households with demographic attributes resembles “reality”: in that if an identical survey were carried out with the synthetic population, it would bear results that statistically similar to the true population.
+          </Text>
           <Text m={2} p={2} align='justify'>
            A synthetic population is a simplified individual-level representation of the actual population. This means that while every person is represented individually in it, not all of their attributes are included (for example, hair colour or shoe-size are deemed to be irrelevant for modelling epidemic spread, and are thus ignored, while the presence of commodities like diabetes would be included). As such, a synthetic population does not aim to be identical to the actual population, but instead attempts to match its various statistical distributions and correlations, thereby being sufficiently close to the true population to be used in modelling.<br></br>
            </Text>
+
+
+           <Heading size="md" m={2} p={2}>An example</Heading>
            <Text m={2} p={2} align='justify'>
+
            In the table below, you can see an example of a section of a synthetic population. Each row represents an individual with a unique ID, as well as certain attributes. These attributes could be related to the individual themselves (like their gender, age, and height and so on), or their network (details pertaining to their homes, workplaces, and possibly schools). Additionally, the population could also contain information regarding the individual’s comorbidities (for example, whether they have diabetes or other preexisting conditions), if this is deemed relevant to the modelling exercise.
           </Text>
 
@@ -530,9 +548,7 @@ export default function App() {
               All of these attributes are strongly correlated with each other and a good synthetic population will ideally be able reproduce the correlations that occur in the real world. However, this is a monumental task; real world data is complex, and often contains many artifacts that need to be addressed.
           </Text>
 
-          <Text m={2} p={2} align='justify'>
-            At the core of BharatSim is a simulated synthetic population, generated using multiple data sources. The resulting population of individuals and households with demographic attributes resembles “reality”: in that if an identical survey were carried out with the synthetic population, it would bear results that statistically similar to the true population.
-          </Text>
+          <Heading size="md" m={2} p={2}>Generating the population</Heading>
           <Text m={2} p={2} align='justify'>
             The synthetic population is generated using statistical methods and machine learning algorithms which are flexible enough to generate data at various administrative levels, i.e., at the level of cities, districts, states, or even the entire country, depending on the level of granularity required by the modeller. The primary sources of data for the generation of such a population are datasets from the Census of India, the India Human Development Survey (IHDS), the National Sample Survey (NSS), the National Family Health Welfare Survey (NFHS), and the Gridded Population of the World (GPW). A number of other sources are also used to fine-tune and validate the above datasets.
             </Text>
@@ -540,21 +556,28 @@ export default function App() {
 
             However, it is not sufficient to merely maintain similar demographic statistics: one must simultaneously handle other connections within the population, like household and workplace contact networks, among other things. If not, we may end up with “families” composed entirely of toddlers, or workplaces with strange mixes of professions, to cite just a few possibilities. Furthermore, the geographical layouts of the households and workplaces must also be realistic.
             </Text>
+
             <Text m={2} p={2} align='justify'>
+
             Because different kinds of data respond well to different techniques, a hybrid process is used to scale up these datasets. First, the data is cleaned, removing absurdities such as negative weights. Then, we use a customized hybrid of Iterative Proportional Fitting (IPF), Iterative Proportional Updating (IPU), and a specialized variant of a neural network, called Conditional-Tabular Generative Adversarial Network (CTGAN), to generate new data.
             </Text>
             <Text m={2} p={2} align='justify'>
 
-            <b>Iterative Proportional Fitting:</b> This can find a joint distribution that matches the marginals, while trying to stay as close to the sample distribution as possible.
+            <i>Iterative Proportional Fitting:</i> This can find a joint distribution that matches the marginals, while trying to stay as close to the sample distribution as possible.
             </Text>
             <Text m={2} p={2} align='justify'>
 
-            <b>Iterative Proportional Updating:</b> This is a heuristic iterative approach which can simultaneously match or fit to multiple distributions (constraints)
-            Conditional-Tabular Generative Adversarial Networks: CTGAN (Xu et al., 2019) is a GAN-based method to model the tabular data distribution and sample rows from the distribution. A Generative Adversarial Network is composed of two "competing" neural networks, a generator and a discriminator. The goal of the generator is to generate realistic samples such that the discriminator is unable to differentiate between a real sample and a generated sample. In this zero-sum game, capabilities of both the networks are enhanced iteratively and the generator begins to generate samples which resemble the real samples.
+            <i>Iterative Proportional Updating:</i> This is a heuristic iterative approach which can simultaneously match or fit to multiple distributions (constraints)
             </Text>
             <Text m={2} p={2} align='justify'>
 
-            <b>Population Generation Process:</b> We use iterated proportional updating to generate a base population. We use census data for the marginal information about the population and the IHDS survey dataset for personal and household attributes. The base population consists of individual data and household data. We assign each household to an administrative unit within a district. We also experimented with CTGAN to generate a base population. The major advantage of IPU over CTGAN is that IPU is capable of matching individual level and household level characteristics of an individual making sure that members of the household have a realistic age and gender joint distribution.<br/><br/>
+            <i>Conditional-Tabular Generative Adversarial Networks:</i> CTGAN (Xu et al., 2019) is a GAN-based method to model the tabular data distribution and sample rows from the distribution. A Generative Adversarial Network is composed of two "competing" neural networks, a generator and a discriminator. The goal of the generator is to generate realistic samples such that the discriminator is unable to differentiate between a real sample and a generated sample. In this zero-sum game, capabilities of both the networks are enhanced iteratively and the generator begins to generate samples which resemble the real samples.
+            </Text>
+
+            <Heading size="sm" m={2} p={2}>The population generation process</Heading>
+
+            <Text m={2} p={2} align='justify'>
+             Iterated proportional updating was used to generate a base population. Census data was then used for the marginal information about the population and the IHDS survey dataset for personal and household attributes. The base population consists of individual data and household data. Each household was assigned to an administrative unit within a district. Experiments were also run with CTGAN to generate a base population. The major advantage of IPU over CTGAN was that the capacity to match individual and household level characteristics while making sure that members of the household have a realistic age and gender joint distribution.<br/><br/>
 
             To assign job labels to individuals in the synthetic population, relevant data from IHDS is used. Individuals below the age of 18 are considered to be students in this population. Additionally, a subset of the population will also be home-bound consisting of unemployed individuals, home-maker, infants and children under the age 3 and elderly people over the retirement age. We use marginal data from the NSS survey to determine the percentage of adult males and females in a city who are home-bound. This gender based marginal value is used as the parameter for a Bernoulli distribution to draw a random independent sample to assign a home-bound label to each adult.<br/><br/>
 
@@ -564,8 +587,10 @@ export default function App() {
 
             A similar technique is followed while assigning workplaces to adults, with a sample being drawn from a suitable subset of workplaces depending on the individual’s job type. There are other attributes that need to be addressed as well. Does an individual use public transport service? Is an individual an "essential worker"? Such ideas are particularly useful for many epidemiological studies, like the spread of COVID-19 in particular. Such factors are currently determined by the job title.
             </Text>
+
+            <Heading size="sm" m={2} p={2}>Verifying the generated population</Heading>
             <Text m={2} p={2} align='justify'>
-            <b>Population Verification Metrics:</b> To compare and verify the generated synthetic population with the real data, multiple metrics such as Statistical (CS-test, KS-test, Bhattacharya distance), Likelihood, and Machine Learning Efficacy Regression are used. For example, the Bhattacharya distance -- a distance measure to measure the statistical similarity between two samples in the same space -- is used to compare the various versions of synthetic population. The greater the overlap between two samples, the lower the Bhattacharya distance. As such, this metric can be used to measure similarity for the age-height and age-weight joint distributions.
+            To compare and verify the generated synthetic population with the real data, multiple metrics such as Statistical (CS-test, KS-test, Bhattacharya distance), Likelihood, and Machine Learning Efficacy Regression are used. For example, the Bhattacharya distance -- a distance measure to measure the statistical similarity between two samples in the same space -- is used to compare the various versions of synthetic population. The greater the overlap between two samples, the lower the Bhattacharya distance. As such, this metric can be used to measure similarity for the age-height and age-weight joint distributions.
 
             Critically, our techniques are designed to work seamlessly across data-scarce and data-rich areas; even if a particular area has error-prone or missing data, we can still generate a synthetic population, albeit of slightly poorer quality, but without affecting anything else.
 
@@ -580,14 +605,27 @@ export default function App() {
         <ChakraProvider theme={theme}>
         <Header bg="#392F74" ></Header>
         </ChakraProvider>
+        <Center>
         <Container maxW='container.xl'>
-          <Center>
+        <Center><Heading size="lg" m={2} p={2}>The Visualization Engine</Heading></Center>
+
             <Text m={2} p={2} align='justify'>
             Using the simulation engine, the modeller may define an output file containing, for example, the number of individuals in different disease states for every time step. The visualization engine can then read this output and create multiple dashboards with different types of graphs that can help in analyzing the results and in visualizing them.<br/><br/>
             The visualisation engine is self-contained, and can accept and visualize any CSV data file. Each dashboard can possess a combination of different graphs and charts, from line-graphs, histograms, and pie-charts. Additionally, the visualization engine can also represent GIS data in the geoJSON format to plot heat maps and choropleths, which can either be static, or which can change with time based on the data provided in the input CSV file.<br/><br/>
 
-            The visualisation engine is self-contained, and can accept and visualize any CSV data file. Each dashboard can possess a combination of different graphs and charts, from line-graphs, histograms, and pie-charts. Additionally, the visualization engine can also represent GIS data in the geoJSON format to plot heat maps and choropleths,
-             which can either be static, or which can change with time based on the data provided in the input CSV file.
+            The visualisation engine is self-contained, and can accept and visualize any CSV data file. Each dashboard can possess a combination of different graphs and charts, from line-graphs, histograms, and pie-charts. Additionally, the visualization engine can also represent GIS data in the geoJSON format to plot heat maps and choropleths, which can either be static, or which can change with time based on the data provided in the input CSV file, shown below.
+
+            <Box p={2} m={2} backgroundColor='white'>
+            <Center>
+              <Image width="30%" ml="7%"mr="7%" pt="5%" pb="5%" src={require("./assets/mumbai.gif")}></Image>
+              </Center>
+            </Box>
+            </Text>
+
+            <Heading size="md" m={2} p={2}>Features of the Visualization Engine</Heading>
+
+            <Text m={2} p={2} align='justify'>
+
              The visualization engine provides a variety of different features:<br/><br/>
 
 
@@ -601,8 +639,9 @@ export default function App() {
             Users can easily add, edit, duplicate, and delete widgets and charts in each dashboard. Dashboards can be duplicated to allow users to duplicate certain design choices and widget configurations. Each widget also allows the users to export the output either as raster or vector data using the PNG and SVG file formats respectively.
 
             </Text>
-          </Center>
+
         </Container>
+        </Center>
       </Route>
 
       <Route path="/publications">
