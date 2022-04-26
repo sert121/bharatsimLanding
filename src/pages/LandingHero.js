@@ -74,7 +74,7 @@ export default function CallToActionWithAnnotation() {
                 bg: 'primary',
               }} 
               onClick={()=> window.open("https://github.com/debayanLab/BharatSim", "_blank")}>
-              Github
+              GitHub
             </Button>
 
             {/* <Button variant={'link'} colorScheme={'purple'} size={'sm'}>
