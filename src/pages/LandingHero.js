@@ -50,7 +50,7 @@ export default function CallToActionWithAnnotation() {
           It was originally designed to run decision-critical scenarios for India during the COVID-19 pandemic, to study, for example, the combined effect that various pharmaceutical and non-pharmaceutical interventions like lockdowns and vaccination drives had on the trajectory of the disease. However, its range is by no means restricted to epidemiology; it can be used to study a wide range of phenomena, especially those in which the interplay of socio-economic factors plays an important role.
           </Text>
           <Stack
-            direction={'column'}
+            direction={'row'}
             spacing={3}
             align={'center'}
             alignSelf={'center'}
@@ -64,6 +64,17 @@ export default function CallToActionWithAnnotation() {
                 bg: 'primary',
               }}>
              <Link to="/components"> Get Started </Link>
+            </Button>
+            <Button
+              colorScheme={'blue'}
+              bg={'#374358'}
+              rounded={'full'}
+              px={6}
+              _hover={{
+                bg: 'primary',
+              }} 
+              onClick={()=> window.open("https://github.com/debayanLab/BharatSim", "_blank")}>
+              Github
             </Button>
 
             {/* <Button variant={'link'} colorScheme={'purple'} size={'sm'}>

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Flex, Text, Button,Icon } from "@chakra-ui/react";
+import { Box, Flex, Text, Button,Icon,Image} from "@chakra-ui/react";
 import Logo from "../ui/Logo";
 import ButtonDoc from "../ui/ButtonDoc";
 import { useHistory } from "react-router-dom";
-import BharatSimLogo from '../../assets/bharatsim-logo.png';
+import BharatSimLogo from '../../assets/Logo_color_bg.png';
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
@@ -141,13 +141,18 @@ const Header = (props) => {
       color={["white", "white", "primary.700", "primary.700"]}
       {...props}
     >
-      <Flex align="center">
+      <Flex align="start">
         {/* <Logo
           w="100px"
           color={["white", "white", "primary.500", "primary.500"]}
         />
      */}
-         <Link to="/"><div style={{fontSize:"1em"}}><BharatSimIcon/></div></Link>
+         <Link  m={-3}
+                p={3}to="/">
+                  <Box size='sm'>
+                    <Image width='160px' src={BharatSimLogo}></Image>
+                  </Box>
+                </Link>
       </Flex>
 
       <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
@@ -168,10 +173,10 @@ const Header = (props) => {
           {/* <MenuItem to="/about">About </MenuItem> */}
 
           <MenuItem to="/components"> Components </MenuItem>
-          <MenuItem to="/collaborations"> Collaborations </MenuItem>
-          <MenuItem to="/publications"> Publications </MenuItem>
+          {/* <MenuItem to="/collaborations"> Collaborations </MenuItem>
+          <MenuItem to="/publications"> Publications </MenuItem> */}
           <MenuItem to="/people"> People </MenuItem>
-          <MenuItem to="/media"> Media </MenuItem>
+          {/* <MenuItem to="/media"> Media </MenuItem> */}
           {/* <MenuItem to="/"> FAQ </MenuItem> */}
           <MenuItemUrl to="https://documentation.com" isLast>
           {/* <ButtonDoc></ButtonDoc> */}

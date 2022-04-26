@@ -123,7 +123,7 @@ export default function App() {
 
               <Center>
                 <Box p={2} m={2} backgroundColor='white'>
-                  <Image src={require("./assets/graph.png")}>
+                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/graph.png")}>
                   </Image>
                 </Box>
               </Center>
@@ -133,7 +133,7 @@ export default function App() {
 
               <Center>
                 <Box p={2} m={2} backgroundColor='white'>
-                  <Image src={require("./assets/nodes.png")}>
+                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/nodes.png")}>
                   </Image>
                 </Box>
               </Center>
@@ -142,7 +142,7 @@ export default function App() {
 
               <Center>
                 <Box p={2} m={2} backgroundColor='white'>
-                  <Image src={require("./assets/relations.png")}>
+                  <Image width="70%" ml="7%"mr="7%" pt="4%" pb="4%" src={require("./assets/relations.png")}>
                   </Image>
                 </Box>
               </Center>
@@ -155,7 +155,7 @@ export default function App() {
            <b></b>
            <Text p={2} m={1} align='justify'>
 
-           Using an abstraction like a graph makes the framework domain independent and flexible. This graph can be implemented in one of two ways, either by using <a href="https://neo4j.com/">Neo4j</a>, a graph database, or using the Scala programming language's scalable map implementation <a href="https://www.scala-lang.org/api/2.12.8/scala/collection/concurrent/TrieMap.html">TrieMap</a>. The modeller can choose either of these implementations. Both these structures were chosen since they optimized data operations, allowing the simulation to scale efficiently to larger populations. The simulation engine framework allows modellers to directly specify their models using its own language. This domain-specific language is itself based on <i>Scala</i>, the language that the simulation framework has been written in. This allows modellers to extend their knowledge of <i>Scala</i> when creating their models. In addition, certain abstract and highly-used concepts have been highlighted and defined using the framework's language. Three such concepts, essential to agent-based models, are schedules, behaviours, and a Finite State Machine.
+           Using an abstraction like a graph makes the framework domain independent and flexible. This graph can be implemented in one of two ways, either by using <Link style={{color:"blue"}} variant="outline" href="https://neo4j.com/" target={"_blank"}>Neo4j</Link>, a graph database, or using the Scala programming language's scalable map implementation <Link style={{color:"blue"}} target={"_blank"} href="https://www.scala-lang.org/api/2.12.8/scala/collection/concurrent/TrieMap.html">TrieMap</Link>. The modeller can choose either of these implementations. Both these structures were chosen since they optimized data operations, allowing the simulation to scale efficiently to larger populations. The simulation engine framework allows modellers to directly specify their models using its own language. This domain-specific language is itself based on <i>Scala</i>, the language that the simulation framework has been written in. This allows modellers to extend their knowledge of <i>Scala</i> when creating their models. In addition, certain abstract and highly-used concepts have been highlighted and defined using the framework's language. Three such concepts, essential to agent-based models, are schedules, behaviours, and a Finite State Machine.
             </Text>
 
 
@@ -164,14 +164,14 @@ export default function App() {
 
               <Center>
                 <Box p={2} m={2} backgroundColor='white'>
-                  <Image src={require("./assets/schedules.png")}>
+                  <Image width="70%" ml="7%"mr="7%" pt="5%" pb="5%" src={require("./assets/schedules.png")}>
                   </Image>
                 </Box>
               </Center>
 
             </Text>
             <Box p={2} m={2} backgroundColor='white'>
-              <Image src={require("./assets/person.png")}>
+              <Image width="70%" ml="7%"mr="7%" pt="5%" pb="5%" src={require("./assets/person.png")}>
               </Image>
             </Box>
 

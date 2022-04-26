@@ -10,6 +10,7 @@ import {
     VisuallyHidden,
   } from '@chakra-ui/react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+  import { MdEmail } from "react-icons/md";
   import { ReactNode } from 'react';
   
   const SocialButton = ({
@@ -61,12 +62,15 @@ import {
             {/* <SocialButton label={'Twitter'} href={'#'}>
               <FaTwitter />
             </SocialButton> */}
-            <SocialButton label={'YouTube'} href={'#'}>
+            <SocialButton 
+            label={'YouTube'} href={'#'}>
               <FaYoutube />
             </SocialButton>
-            {/* <SocialButton label={'Instagram'} href={'#'}>
-              <FaInstagram />
-            </SocialButton> */}
+            <SocialButton 
+            label={'Email'} href={'mailto:bharatsim@ashoka.edu.in'}
+            >
+              <MdEmail/>
+            </SocialButton>
           </Stack>
         </Container>
       </Box>
