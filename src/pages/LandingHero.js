@@ -43,11 +43,12 @@ export default function CallToActionWithAnnotation() {
             </Heading>
 
           <Text color={'white.500'} p={1} fontWeight={300} fontSize='xl' fontFamily="Inter" textAlign='justify'>
-           {/* <span style={{color:"#9CAAC5",fontWeight:"600"}}>*/}  <span style={{color:"#2D3748",fontWeight:"600"}}> BharatSim</span>  is a collaborative project between <span style={{color:"#2D3748",fontWeight:"600"}}> Ashoka University </span> and <span style={{color:"#2D3748",fontWeight:"600"}}> Thoughtworks</span>, funded by the <span style={{color:"#2D3748",fontWeight:"600"}}>Bill & Melinda Gates Foundation</span> and <span style={{color:"#2D3748",fontWeight:"600"}}>Mphasis</span>.
-           Real-world systems involve interactions between individuals with different attributes and network connections. The dependence of such complex systems can be studied using agent-based models, which allow the modeller to see the effect of emergent phenomena from individual dynamics and interactions.<br/><br/>
+           {/* <span style={{color:"#9CAAC5",fontWeight:"600"}}>*/}  <span style={{color:"#2D3748",fontWeight:"600"}}> BharatSim</span>  is a open-source collaborative project between <span style={{color:"#2D3748",fontWeight:"600"}}> Ashoka University </span> and <span style={{color:"#2D3748",fontWeight:"600"}}> Thoughtworks</span>, funded by the <span style={{color:"#2D3748",fontWeight:"600"}}>Bill & Melinda Gates Foundation</span> and <span style={{color:"#2D3748",fontWeight:"600"}}>Mphasis</span>.<br/><br/>
 
-           BharatSim's vision is to build a distributed, multi-scale, simulation framework for agent-based models, for use by the scientific community.
-          It was originally designed to run decision-critical scenarios for India during the COVID-19 pandemic, to study, for example, the combined effect that various pharmaceutical and non-pharmaceutical interventions like lockdowns and vaccination drives had on the trajectory of the disease. However, its range is by no means restricted to epidemiology; it can be used to study a wide range of phenomena, especially those in which the interplay of socio-economic factors plays an important role.
+           BharatSim provides a distributed, multi-scale, simulation framework for agent-based models. It was originally designed to model the epidemiological dynamics of the COVID-19 pandemic in India, including the social determinants of disease.   BharatSim is easily extended to describe other communicable as well as non-communicable diseases.<br/><br/>
+
+           BharatSim is versatile. In addition to disease modelling, it may be used to study a wide range of social phenomena.<br/><br/>
+
           </Text>
           <Stack
             direction={'row'}

@@ -74,13 +74,13 @@ function ProfileCard({name,title,email,img_url}){
             mt={4}
             color={useColorModeValue("gray.700", "gray.200")}
           >
-              
+
           <Icon as={MdLocationOn} h={6} w={6} mr={2} />
 
             <Text px={2} fontSize="sm">
               California
             </Text>
-             
+
           </Flex>*/}
           <Flex
             alignItems="center"
@@ -88,13 +88,13 @@ function ProfileCard({name,title,email,img_url}){
             color={useColorModeValue("gray.700", "gray.200")}
           >
             <Icon as={MdEmail} h={6} w={6} mr={2} />
-              
+
             <Text px={2} fontSize="sm">
               {email}
             </Text>
           </Flex>
 
-    
+
 
         </Box>
       </Box>
@@ -107,45 +107,44 @@ const People = () => {
     <>
     <div className="topContainer-people">
     <Flex direction="column">
-     
+
         <Center>
-          <Text fontSize='xl' fontWeight={700}> Thoughtworks Team</Text>
+          <Text fontSize='xl' fontWeight={700}> Ashoka University Team</Text>
         </Center>
 
       <Flex direction="row">
-      
-        <ProfileCard name="Jayanta Kshirsagar" title="Engineering for Research" img_url={require('../assets/people/jayanta1.jpg')} email="jayantak@thoughtworks.com"/>
-        <ProfileCard name="Praveen Ninawe" title="Engineering for Research" img_url={require('../assets/people/praveen.jpg')} email="praveen.ninawe@thoughtworks.com"/>
-        <ProfileCard name="Harshal Hayatnagarkar" title="Engineering for Research" img_url={require('../assets/people/harshal.png')} email="harshalh@thoughtworks.com"/>
-        <ProfileCard name="Chhaya Yadav" title="Engineering for Research" img_url={require('../assets/people/chhaya.jpeg')} email="chhayay@thoughtworks.com"/>
-        
 
-      </Flex> 
-
-      <br></br>
-      <br></br>
-
-      <Center>
-      <Text fontSize='xl' fontWeight={700}> Ashoka University Team</Text>
-      </Center>
-
-      <Flex direction="row">
-      
       <ProfileCard name="Gautam Menon" title="Professor of Physics and Biology" img_url="https://www.ashoka.edu.in/wp-content/uploads/2021/04/Untitled-design-55.png" email="gautam.menon@ashoka.edu.in"/>
       <ProfileCard name="Debayan Gupta" title="Assistant Professor of Computer Science" img_url={require('../assets/people/DebG.jpeg')} email="debayan.gupta@ashoka.edu.in"/>
       <ProfileCard name="Bhavesh Neekhra" title="Graduate Student, Computer Science" img_url={require('../assets/people/Bhavesh_Neekhra_AU.jpeg')} email="bhavesh.neekhra_phd18@ashoka.edu.in"/>
       <ProfileCard name="Philip Cherian" title="Graduate Student, Physics" img_url={require('../assets/people/Philip_Profile.jpg')} email="philip.cherian@ashoka.edu.in"/>
 
-      </Flex> 
-    
+      </Flex>
+
+      <br></br>
+      <br></br>
+
+      <Center>
+      <Text fontSize='xl' fontWeight={700}> Thoughtworks Team</Text>
+      </Center>
+
+      <Flex direction="row">
+
+      <ProfileCard name="Jayanta Kshirsagar" title="Engineering for Research" img_url={require('../assets/people/jayanta1.jpg')} email="jayantak@thoughtworks.com"/>
+      <ProfileCard name="Praveen Ninawe" title="Engineering for Research" img_url={require('../assets/people/praveen.jpg')} email="praveen.ninawe@thoughtworks.com"/>
+      <ProfileCard name="Harshal Hayatnagarkar" title="Engineering for Research" img_url={require('../assets/people/harshal.png')} email="harshalh@thoughtworks.com"/>
+      <ProfileCard name="Chhaya Yadav" title="Engineering for Research" img_url={require('../assets/people/chhaya.jpeg')} email="chhayay@thoughtworks.com"/>
+
+      </Flex>
+
 
 
     </Flex>
 
-    </div> 
-    
- 
-      
+    </div>
+
+
+
     </>
   );
 }
