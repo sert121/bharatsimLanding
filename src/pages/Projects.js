@@ -144,9 +144,9 @@ flexDirection="column"
  return(
    <Container w="full" maxW={"6xl"}  >
       <HStack spacing={2}>
-        <Ma imageUrl="https://i.ibb.co/qrRnDCw/tsne.png"  external_link="/simulation_engine" title="Simulation engine" body="An open-source, large-scale, agent-based simulation framework, built to help the scientific community to study complex adaptive systems, without being lost in unnecessary implementation details."/>
-        <Ma imageUrl="https://i.ibb.co/jkbW30f/india-viz.png"   external_link="/viz_engine" title="Visualization Engine" body=" A self-contained web app that can read the output of the simulation engine and create multiple dashboards with different types of graphs which can in turn help in analyzing the results and extracting information from them "/>
-        <Ma imageUrl="https://i.ibb.co/ThtKFNK/undraw-hologram-fjwp.png"  external_link="/synthetic_population" title="Synthetic Data Generation" body="A synthetic representation of the Indian population, composed of agents with individual geographic, social, or biological characteristics, which is generated from actual data and statistically identical to it."/>
+        <Ma imageUrl="https://i.ibb.co/qrRnDCw/tsne.png"  external_link="/simulation_engine" title="The Simulation Engine" body="A simulation framework to model agents with heteregenous attributes and in a realistic geographical background."/>
+        <Ma imageUrl="https://i.ibb.co/jkbW30f/india-viz.png"   external_link="/viz_engine" title="The Visualization Engine" body=" A web app that enables visualization of the output of the simulation engine and the synthetic population."/>
+        <Ma imageUrl="https://i.ibb.co/ThtKFNK/undraw-hologram-fjwp.png"  external_link="/synthetic_population" title="The Synthetic Population" body="A synthetic representation of the Indian population in each district containing for each agent attributes like home and work locations, age and gender."/>
       </HStack>
     </Container>
  );
