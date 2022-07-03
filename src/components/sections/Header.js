@@ -1,21 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Flex, Text, Button,Icon,Image} from "@chakra-ui/react";
+import { Box, Flex, Text, Button,Icon,Image, useFocusEffect} from "@chakra-ui/react";
 import Logo from "../ui/Logo";
 import ButtonDoc from "../ui/ButtonDoc";
-import { useHistory } from "react-router-dom";
+import { useHistory,useLocation } from "react-router-dom";
 import BharatSimLogo from '../../assets/Logo_color_bg.png';
 
-const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
+const MenuItem = ({ children, isLast, flag,to = "/", ...rest }) => {
+
+  // let location = useLocation();
+  // let path = location.pathname.toString().slice(1);
+  // console.log('path:   ' ,path);
+  // console.log( 'path:' ,path.pathname.toString().slice(1),children.toString().toLowerCase() );
   return (
+    <>
+    { flag=='current_tab'? 
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
       mr={{ base: 0, sm: isLast ? 0 : 8 }}
       display="block"
       {...rest}
+      borderBottom={"2px"}
+      borderBottomColor={'white'}  
     >
+  
+      <Link to={to}>{children}</Link> </Text>
+
+      : 
+      <Text
+      mb={{ base: isLast ? 0 : 8, sm: 0 }}
+      mr={{ base: 0, sm: isLast ? 0 : 8 }}
+      display="block"
+      {...rest}
+    >
+  
       <Link to={to}>{children}</Link>
-    </Text>
+      </Text>
+     }
+
+
+     </>
+      
+   
   );
 };
 
@@ -66,7 +92,23 @@ const Header = (props) => {
     history.push("/about");
   }
 
+  const [loc,updateLoc] = React.useState('');
+  let location = useLocation();
+  //write a useffect
+
+ 
+  // let path = location.pathname.toString().slice(1);
+  //   return () => {
+  //     console.log('useEffect return');
+  //   }
+  // }
+  // ,[])
+  // let location = useLocation();
+  // let path = location.pathname.toString().slice(1);
+
   return (
+    <>
+    {location &&
     <Flex
       as="nav"
       align="center"
@@ -107,13 +149,26 @@ const Header = (props) => {
           direction={["column", "row", "row", "row"]}
           pt={[4, 4, 0, 0]}
         >
-          <MenuItem to="/">Home</MenuItem>
+
+          { location.pathname.toString()==='/' ?
+          <MenuItem to="/" flag={'current_tab'}> Home</MenuItem> 
+          : <><MenuItem to="/" flag={''}>  Home</MenuItem></> 
+        }
           {/* <MenuItem to="/about">About </MenuItem> */}
 
-          <MenuItem to="/components"> Components </MenuItem>
+          { location.pathname.toString()==='/components' ?
+          <MenuItem to="/components" flag={'current_tab'}> Components </MenuItem> :
+          <><MenuItem to="/components" flag={''}> Components </MenuItem></>
+          }
+
           {/* <MenuItem to="/collaborations"> Collaborations </MenuItem>
           <MenuItem to="/publications"> Publications </MenuItem> */}
-          <MenuItem to="/people"> People </MenuItem>
+
+          { location.pathname.toString()==='/people' ?
+          <MenuItem to="/people" flag={'current_tab'}> People </MenuItem>
+           : <MenuItem to="/people" flag={''}> People </MenuItem>
+        } 
+
           {/* <MenuItem to="/media"> Media </MenuItem> */}
           {/* <MenuItem to="/"> FAQ </MenuItem> */}
           <MenuItemUrl to="https://documentation.com" isLast>
@@ -137,6 +192,8 @@ const Header = (props) => {
         </Flex>
       </Box>
     </Flex>
+  }
+  </>
   );
 };
 

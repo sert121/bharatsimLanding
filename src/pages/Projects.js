@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack,Button,HStack ,VStack, theme,Container,Text,Flex, Spacer,Box,useColorModeValue,LinkImage,Image,Link} from '@chakra-ui/react'
 // import SectionImgA from '../assets/tsne.png'
 import {Link as InnerLink} from 'react-router-dom'
+
 function Cards(props){
     return (
 <Flex
@@ -118,7 +119,7 @@ flexDirection="column"
             </Text>
             <Box mt={7} mb={4}>
               <InnerLink to={props.external_link}>
-              <Link
+              <Button
                 bg="gray.900"
                 color="gray.100"
                 px={5}
@@ -128,7 +129,7 @@ flexDirection="column"
                 _hover={{ bg: "black.800" }}
                 to={props.external_link}>
               Read More
-              </Link>
+              </Button>
               </InnerLink>
            </Box>
           </Box>
