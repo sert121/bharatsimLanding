@@ -12,6 +12,7 @@ import Hero from "../components/sections/Hero";
 import LandingLayout from "../components/layouts/LandingLayout";
 import LandingHero from "./LandingHero";
 import Footer from "../components/sections/Footer";
+import Footerv2 from "../components/sections/Footerv2";
 import theme from '../theme.js';
 export default function Landing() {
   return (
@@ -26,7 +27,8 @@ export default function Landing() {
       /> */}
       <LandingHero/>
     </LandingLayout>
-    <Footer />
+    {/* <Footer /> */}
+    <Footerv2 />
     </ChakraProvider>
   );
 }
