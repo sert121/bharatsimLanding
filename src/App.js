@@ -101,14 +101,17 @@ export default function App() {
 
       <Route path="/simulation_engine">
       <SimulationEngine></SimulationEngine>
+      <Footerv2></Footerv2>
       </Route>
 
       <Route path="/synthetic_population">
         <SyntheticPopulation/>
+        <Footerv2></Footerv2>
         </Route>
 
       <Route path="/viz_engine">
         <VizEngine/>
+        <Footerv2></Footerv2>
       </Route>
 
       <Route path="/publications">
