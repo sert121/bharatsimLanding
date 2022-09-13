@@ -2,6 +2,7 @@ import React from 'react';
 import theme from '../theme.js';
 import Header from '../components/sections/Header.js';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Link as InnerLink} from 'react-router-dom'
 
 import {
   ChakraProvider,
@@ -10,6 +11,7 @@ import {
   Box,
   HStack,
   Vstack,
+  Button,
   Text,
   Link,
   VStack,
@@ -20,6 +22,8 @@ import {
   Container,
   Spacer,
 } from '@chakra-ui/react';
+
+import { AiOutlineArrowLeft,AiOutlineArrowRight } from "react-icons/ai";
 
 import {
     Table,
@@ -432,6 +436,24 @@ function SyntheticPopulation() {
 
             Critically, our techniques are designed to work seamlessly across data-scarce and data-rich areas; even if a particular area has error-prone or missing data, we can still generate a synthetic population, albeit of slightly poorer quality, but without affecting anything else.
           </Text>
+
+          <Flex  p={4} mb={2}>
+
+          <InnerLink to='/viz_engine'>
+          <Button leftIcon={<AiOutlineArrowLeft/>}>
+              Visualization Engine
+            </Button>
+          </InnerLink> 
+
+          <Spacer></Spacer>
+
+          <InnerLink to='/simulation_engine'>
+          <Button rightIcon={<AiOutlineArrowRight/>}>
+              Simulation Engine
+            </Button>
+          </InnerLink>
+        </Flex>
+
         </Container>
         </Center>
         </ChakraProvider>

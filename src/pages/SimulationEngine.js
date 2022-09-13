@@ -3,6 +3,7 @@ import theme from '../theme.js';
 import Header from '../components/sections/Header.js';
  
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AiOutlineArrowLeft,AiOutlineArrowRight } from "react-icons/ai";
 import {
   ChakraProvider,
   Center,
@@ -19,7 +20,10 @@ import {
   Grid,
   Container,
   Spacer,
+  Stack,
+  Button,
 } from '@chakra-ui/react';
+import {Link as InnerLink} from 'react-router-dom'
 
 function SimulationEngine() {
   return (
@@ -123,7 +127,21 @@ function SimulationEngine() {
         <Text p={2} m={2} align='justify'>
           A behaviour is an action that is performed by each agent at every time-step, and can be defined within the user-defined extension of the <tt>Agent</tt> class using the framework-defined <tt>addBehaviour</tt> function. These behaviours can be used to model (for example) whether or not an individual will go to a vaccination centre to get vaccinated, or alternatively to count the number of days that an individual has spent in the infected compartment. Such behaviours thus give the modeller the flexibility to perform a repetitive task per agent per time-step.
         </Text>
+        <Flex  p={4} mb={2}>
+        <InnerLink to='/synthetic_population'>
+        <Button leftIcon={<AiOutlineArrowLeft/>}>
+            Synthetic Population    
+            </Button>
+          </InnerLink>
+          
+          <Spacer></Spacer>
 
+          <InnerLink to='/viz_engine'>
+          <Button rightIcon={<AiOutlineArrowRight/>}>
+              Visualization Engine
+            </Button>
+          </InnerLink>
+        </Flex>
     </Container>
     </Center>
     </>
