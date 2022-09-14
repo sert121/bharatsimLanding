@@ -2,6 +2,7 @@ import React from 'react';
 import theme from '../theme.js';
 import Header from '../components/sections/Header.js';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Link as InnerLink} from 'react-router-dom'
 
 import {
   ChakraProvider,
@@ -10,6 +11,7 @@ import {
   Box,
   HStack,
   Vstack,
+  Button,
   Text,
   Link,
   VStack,
@@ -20,6 +22,8 @@ import {
   Container,
   Spacer,
 } from '@chakra-ui/react';
+
+import { AiOutlineArrowLeft,AiOutlineArrowRight } from "react-icons/ai";
 
 import {
     Table,
@@ -415,8 +419,29 @@ function SyntheticPopulation() {
 
             <Heading size="sm" m={2} p={2}>Verifying the generated population</Heading>
             <Text m={2} p={2} align='justify'>
-              To compare and verify the the generated synthetic population with the survey data, we use the Bhattacharya distance. The Bhattacharya distance can be used to measure the statistical similarity between two samples in the same space. The greater the overlap between two samples, the lower the Bhattacharya distance. We also used the Bhattacharya distance to quantify the similarity of the joint age-height and age-weight distributions. In addition, apart from comparing the two populations visually, we have also used a number of other metrics such as statistical likelihood techniques (CS-test, KS-test).
-            </Text>
+
+            To compare and verify the generated synthetic population with the real data, multiple metrics such as Statistical (CS-test, KS-test, Bhattacharya distance), Likelihood, and Machine Learning Efficacy Regression are used. For example, the Bhattacharya distance -- a distance measure to measure the statistical similarity between two samples in the same space -- is used to compare the various versions of synthetic population. The greater the overlap between two samples, the lower the Bhattacharya distance. As such, this metric can be used to measure similarity for the age-height and age-weight joint distributions.
+
+            Critically, our techniques are designed to work seamlessly across data-scarce and data-rich areas; even if a particular area has error-prone or missing data, we can still generate a synthetic population, albeit of slightly poorer quality, but without affecting anything else.
+          </Text>
+
+          <Flex  p={4} mb={2}>
+
+          <InnerLink to='/viz_engine'>
+          <Button leftIcon={<AiOutlineArrowLeft/>}>
+              Visualization Engine
+            </Button>
+          </InnerLink> 
+
+          <Spacer></Spacer>
+
+          <InnerLink to='/simulation_engine'>
+          <Button rightIcon={<AiOutlineArrowRight/>}>
+              Simulation Engine
+            </Button>
+          </InnerLink>
+        </Flex>
+
         </Container>
         </Center>
         </ChakraProvider>

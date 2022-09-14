@@ -1,10 +1,12 @@
 import React from 'react'
 import theme from '../theme.js';
 import Header from '../components/sections/Header.js';
+import {Link as InnerLink} from 'react-router-dom'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
     ChakraProvider,
     Center,
+    Button,
     Image,
     Box,
     HStack,
@@ -27,6 +29,7 @@ import {
     Td,
     TableCaption,
     } from '@chakra-ui/react'
+import { AiOutlineArrowLeft,AiOutlineArrowRight } from "react-icons/ai";
 
 function VizEngine() {
   return (
@@ -68,6 +71,22 @@ function VizEngine() {
             Users can easily add, edit, duplicate, and delete widgets and charts in each dashboard. Dashboards can be duplicated to allow users to duplicate certain design choices and widget configurations. Each widget also allows the users to export the output either as raster or vector data using the PNG and SVG file formats respectively.
 
             </Text>
+            <Flex  p={4} mb={2}>
+
+        <InnerLink to='/simulation_engine'>
+            <Button leftIcon={<AiOutlineArrowLeft/>}>
+              Simulation Engine
+            </Button>
+          </InnerLink>
+          
+          <Spacer></Spacer>
+
+          <InnerLink to='/synthetic_population'>
+            <Button rightIcon={<AiOutlineArrowRight/>}>
+              Synthetic Population
+            </Button>
+          </InnerLink>
+        </Flex>
 
         </Container>
         </Center>
