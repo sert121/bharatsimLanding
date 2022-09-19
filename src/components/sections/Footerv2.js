@@ -131,10 +131,10 @@ export default function Footerv2() {
           <Stack align={'flex-center'}>
             <ListHeader>Contact</ListHeader>
             <Link href={'#'} fontWeight={500}>For users: </Link> 
-            <Link>mail@mail.com</Link>
+            <Link>To be updated</Link>
 
             <Link href={'#'} fontWeight={500}>For developers: </Link>
-            <Link>mail2@mail2.com</Link>
+            <Link>To be updated</Link>
           </Stack>
           <Stack align={'flex-center'}>
             <ListHeader>License</ListHeader>
