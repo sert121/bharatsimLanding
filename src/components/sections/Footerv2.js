@@ -109,7 +109,7 @@ export default function Footerv2() {
             <ListHeader>Community</ListHeader>
             <Stack direction={'row'} spacing={2}>
             <Link mt={1}><FaGithub></FaGithub></Link>
-            <Link href={'#'}>Github</Link>
+            <Link href={'https://github.com/bharatsim'}>GitHub</Link>
             </Stack>
             {/* <Stack direction={'row'} spacing={2}>
               <Link mt={1}><FaFacebook></FaFacebook></Link>
@@ -123,7 +123,7 @@ export default function Footerv2() {
             
             <Stack direction={'row'} spacing={2}>
               <Link mt={1}><FaYoutube></FaYoutube></Link>
-              <Link href={'#'}>Youtube</Link>  
+              <Link href={'#'}>Coming soon</Link>  
               </Stack>
 
             
@@ -131,10 +131,10 @@ export default function Footerv2() {
           <Stack align={'flex-center'}>
             <ListHeader>Contact</ListHeader>
             <Link href={'#'} fontWeight={500}>For users: </Link> 
-            <Link>mail@mail.com</Link>
+            <Link>To be updated</Link>
 
             <Link href={'#'} fontWeight={500}>For developers: </Link>
-            <Link>mail2@mail2.com</Link>
+            <Link>To be updated</Link>
           </Stack>
           <Stack align={'flex-center'}>
             <ListHeader>License</ListHeader>
