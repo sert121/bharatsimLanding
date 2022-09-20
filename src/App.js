@@ -71,13 +71,13 @@ export default function App() {
           <Landing />
         </Route>
 
-        <Route path="/about">
+        {/* <Route path="/about">
         <ChakraProvider theme={theme}>
         <div>
           Hello!
         </div>
     </ChakraProvider>
-        </Route>
+        </Route> */}
 
         <Route path="/media">
         <ChakraProvider theme={theme}>
@@ -119,7 +119,7 @@ export default function App() {
         <Header bg="#392F74" ></Header>
           {/*<Publications />*/}
             <div style={{margin:"auto",width:"50%",paddingLeft:"23vw"}}>
-            Work in Progress...
+            To be updated
             </div>
           {/* <Footer /> */}
           </ChakraProvider>

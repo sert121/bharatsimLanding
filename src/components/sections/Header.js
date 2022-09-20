@@ -161,8 +161,8 @@ const Header = (props) => {
           <><MenuItem to="/components" flag={''}> Components </MenuItem></>
           }
 
-          {/* <MenuItem to="/collaborations"> Collaborations </MenuItem>
-          <MenuItem to="/publications"> Publications </MenuItem> */}
+          {/* <MenuItem to="/collaborations"> Collaborations </MenuItem> */}
+          <MenuItem to="/publications"> Publications </MenuItem> 
 
           { location.pathname.toString()==='/people' ?
           <MenuItem to="/people" flag={'current_tab'}> People </MenuItem>

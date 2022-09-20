@@ -11,6 +11,7 @@ import { Center, Square, Circle } from '@chakra-ui/react'
 
 
 function ProfileCard({name,title,email,img_url}){
+  let url_email = "mailto:"+email;
   return (
     <Flex
     //   bg={useColorModeValue("#F9FAFB", "gray.600")}
@@ -20,9 +21,10 @@ function ProfileCard({name,title,email,img_url}){
       justifyContent="center"
     >
       <Box
-        w="300px"
+        w="310px"
         h="400px"
         mx="auto"
+        my='auto'
         bg={useColorModeValue("white", "#351B59")}
         shadow="lg"
         rounded="lg"
@@ -46,7 +48,6 @@ function ProfileCard({name,title,email,img_url}){
           >
             {name}
           </Text>
-
           <Text py={2} color={useColorModeValue("gray.700", "gray.400")}>
             {title}
           </Text>
@@ -86,12 +87,15 @@ function ProfileCard({name,title,email,img_url}){
             alignItems="center"
             mt={4}
             color={useColorModeValue("gray.700", "gray.200")}
+            pb={2}
           >
             <Icon as={MdEmail} h={6} w={6} mr={2} />
 
+          <Link href={url_email} isExternal>
             <Text px={2} fontSize="sm">
               {email}
             </Text>
+          </Link>
           </Flex>
 
 
